@@ -1,0 +1,74 @@
+{
+  "name": "65c816",
+  "icon": "images/icon.png",
+  "displayName": "SNES Assembly Suite (65C816/5A22)",
+  "description": "Advanced syntax highlighting and symbol navigation for SNES 65C816 (5A22) assembly. Designed for ROM hacking, homebrew, and retro development. More SNES chip support coming soon.",
+  "version": "0.0.1",
+  "publisher": "alberto-pilotto",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Alberto12345678999/snes-assembly-suite"
+  },
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.102.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "themes": [
+      {
+        "label": "SNES-ASM-Color",
+        "uiTheme": "hc-black",
+        "path": "./themes/SNES-ASM-Color-color-theme.json"
+      }
+    ],
+    "languages": [
+      {
+        "id": "65c816",
+        "aliases": [
+          "SNES 65C816 Assembly",
+          "5A22 Assembly",
+          "SNES ASM"
+        ],
+        "extensions": [
+          ".asm",
+          ".s",
+          ".816",
+          ".sfc",
+          ".inc"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "65c816",
+        "scopeName": "source.65c816",
+        "path": "./syntaxes/snes_65_c_816_syntax_skeleton_tm_language.json"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.1",
+    "@types/node": "16.x",
+    "@typescript-eslint/eslint-plugin": "^6.4.1",
+    "@typescript-eslint/parser": "^6.4.1",
+    "@vscode/test-electron": "^2.3.4",
+    "eslint": "^8.47.0",
+    "glob": "^10.3.3",
+    "mocha": "^10.2.0",
+    "typescript": "^5.1.6",
+    "vscode": "^1.1.37"
+  }
+}
