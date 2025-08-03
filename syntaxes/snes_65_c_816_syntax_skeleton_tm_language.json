@@ -55,47 +55,83 @@
     },
     "opcodes_arithmetic": {
       "patterns": [
-        { "name": "keyword.opcode.arithmetic.65c816", "match": "\\b(ADC|SBC|INC|DEC|INA|DEA|INX|DEX|INY|DEY|SBC|CMP)\\b" }
+        {
+          "comment": "Arithmetic Instructions",
+          "name": "keyword.mnemonic.math.snes65c816",
+          "match": "^[ \\t]*:?[ \\t]*\\b(?i:adc|sbc|inc|dec)\\b"
+        }
       ]
     },
-    "opcodes_logic": {
+    "opcodes_transfer": {
       "patterns": [
-        { "name": "keyword.opcode.logic.65c816", "match": "\\b(AND|ORA|EOR|BIT|TRB|TSB)\\b" }
-      ]
-    },
-    "opcodes_memory": {
-      "patterns": [
-        { "name": "keyword.opcode.memory.65c816", "match": "\\b(LDA|STA|LDX|STX|LDY|STY|STZ|MVN|MVP|PEA|PEI|PER)\\b" }
+        {
+          "comment": "Data Transfer Instructions",
+          "name": "keyword.mnemonic.transfer.snes65c816",
+          "match": "^[ \\t]*:?[ \\t]*\\b(?i:lda|ldx|ldy|sta|stx|sty|stz|mvn|mvp|pea|pei|per)\\b"
+        }
       ]
     },
     "opcodes_branch": {
       "patterns": [
-        { "name": "keyword.opcode.branch.65c816", "match": "\\b(BCC|BCS|BEQ|BMI|BNE|BPL|BRA|BRL|BVC|BVS)\\b" }
-      ]
-    },
-    "opcodes_flow": {
-      "patterns": [
-        { "name": "keyword.opcode.flow.65c816", "match": "\\b(JMP|JML|JSR|JSL|RTS|RTL|RTI)\\b" }
+        {
+          "comment": "Branch Instructions",
+          "name": "keyword.mnemonic.branch.snes65c816",
+          "match": "^[ \\t]*:?[ \\t]*\\b(?i:bcc|bcs|beq|bmi|bne|bpl|bra|brl|bvc|bvs)\\b"
+        }
       ]
     },
     "opcodes_stack": {
       "patterns": [
-        { "name": "keyword.opcode.stack.65c816", "match": "\\b(PHA|PLA|PHP|PLP|PHB|PLB|PHD|PLD|PHK|PHX|PHY|PLX|PLY|TXA|TAX|TYA|TAY|TSX|TXS|TXY|TYX|TCD|TDC|TSC|TCS)\\b" }
+        {
+          "comment": "Stack Instructions",
+          "name": "keyword.mnemonic.stack.snes65c816",
+          "match": "^[ \\t]*:?[ \\t]*\\b(?i:pha|pla|php|plp|phb|plb|phd|pld|phk|phx|phy|plx|ply)\\b"
+        }
       ]
     },
-    "opcodes_status": {
+    "opcodes_transfer_reg": {
       "patterns": [
-        { "name": "keyword.opcode.status.65c816", "match": "\\b(CLC|SEC|CLI|SEI|CLD|SED|CLV|REP|SEP|XCE)\\b" }
+        {
+          "comment": "Transfer Between Registers Instructions",
+          "name": "keyword.mnemonic.transferreg.snes65c816",
+          "match": "^[ \\t]*:?[ \\t]*\\b(?i:txa|tax|tya|tay|tsx|txs|txy|tyx|tcd|tdc|tsc|tcs)\\b"
+        }
       ]
     },
-    "opcodes_bit": {
+    "opcodes_bitwise": {
       "patterns": [
-        { "name": "keyword.opcode.bit.65c816", "match": "\\b(ASL|LSR|ROL|ROR)\\b" }
+        {
+          "comment": "Bitwise Instructions",
+          "name": "keyword.mnemonic.bitwise.snes65c816",
+          "match": "^[ \\t]*:?[ \\t]*\\b(?i:and|ora|eor|asl|lsr|rol|ror|bit|trb|tsb)\\b"
+        }
       ]
     },
-    "opcodes_system": {
+    "opcodes_flow": {
       "patterns": [
-        { "name": "keyword.opcode.system.65c816", "match": "\\b(COP|BRK|STP|WAI|WDM|NOP|XBA)\\b" }
+        {
+          "comment": "Program Flow Instructions",
+          "name": "keyword.mnemonic.flow.snes65c816",
+          "match": "^[ \\t]*:?[ \\t]*\\b(?i:jmp|jml|jsr|jsl|rts|rtl|rti)\\b"
+        }
+      ]
+    },
+    "opcodes_flags": {
+      "patterns": [
+        {
+          "comment": "Processor Flag Instructions",
+          "name": "keyword.mnemonic.flags.snes65c816",
+          "match": "^[ \\t]*:?[ \\t]*\\b(?i:clc|sec|cli|sei|cld|sed|clv|rep|sep|xce)\\b"
+        }
+      ]
+    },
+    "opcodes_misc": {
+      "patterns": [
+        {
+          "comment": "Miscellaneous Instructions",
+          "name": "keyword.mnemonic.misc.snes65c816",
+          "match": "^[ \\t]*:?[ \\t]*\\b(?i:cop|brk|stp|wai|wdm|nop|xba|cmp|cpy|cpx)\\b"
+        }
       ]
     },
     "macros": {
@@ -112,7 +148,7 @@
         
         {
           "name": "entity.name.function.macro.use.65c816",
-          "match": "^\\\\s*([a-zA-Z_][a-zA-Z0-9_]*)\\\\s*(?=\\()",
+          "match": "^\\s*([a-zA-Z_][a-zA-Z0-9_]*)\\s*(?=\\()",
           "captures": {
             "1": { "name": "entity.name.function.macro.65c816" }
           }
