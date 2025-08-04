@@ -22,7 +22,7 @@
       {
         "label": "SNES Assembly Suite (65C816/5A22)",
         "uiTheme": "hc-black",
-        "path": "./themes/SNES Assembly Suite (65C8165A22)-color-theme.json"
+        "path": "./65c816-theme/themes/SNES Assembly Suite (65C8165A22)-color-theme.json"
       }
     ],
     "languages": [
