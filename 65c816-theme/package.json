@@ -1,0 +1,21 @@
+{
+  "name": "65c816-theme",
+  "displayName": "65c816_theme",
+  "description": "Advanced syntax highlighting and symbol navigation for SNES 65C816 (5A22) assembly. Designed for ROM hacking, homebrew, and retro development. More SNES chip support coming soon.",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.102.0"
+  },
+  "categories": [
+    "Themes"
+  ],
+  "contributes": {
+    "themes": [
+      {
+        "label": "SNES Assembly Suite (65C816/5A22)",
+        "uiTheme": "hc-black",
+        "path": "./themes/SNES Assembly Suite (65C8165A22)-color-theme.json"
+      }
+    ]
+  }
+}

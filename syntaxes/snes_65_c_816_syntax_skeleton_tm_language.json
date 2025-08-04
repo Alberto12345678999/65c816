@@ -53,39 +53,49 @@
         { "name": "keyword.operator.misc.65c816", "match": "=|<>|:=|\\+|-|\\*|/|&|~|\\||<<|>>|&&|\\|\\||!|<|>|<=|>=" }
       ]
     },
-    "opcodes_arithmetic": {
+    "labels": {
       "patterns": [
         {
-          "comment": "Arithmetic Instructions",
-          "name": "keyword.mnemonic.math.snes65c816",
-          "match": "^[ \\t]*:?[ \\t]*\\b(?i:adc|sbc|inc|dec)\\b"
+          "comment": "Global Label Definitions with Double Colon",
+          "name": "entity.name.label.global.doublecolon.definition.65c816",
+          "match": "^[ \\t]*([a-zA-Z_][\\w#@]*)(?=::)",
+          "captures": {
+            "1": { "name": "entity.name.label.global.doublecolon.definition.65c816" }
+            }
+          },
+        
+        {
+          "comment": "Global Label Definitions (non-dot-prefixed, ending with single colon)",
+          "name": "entity.name.label.global.definition.65c816",
+          "match": "^[ \\t]*[a-zA-Z_][\\w#@]*:(?=\\s|$)"
+        },
+        {
+          "comment": "Local Label Definitions (dot-prefixed, colon optional)",
+          "name": "entity.name.label.local.definition.65c816",
+          "match": "^[ \\t]*\\.[a-zA-Z_][\\w#@]*[:]?\\b"
+        },
+        {
+          "comment": "Local Label Reference Matching",
+          "name": "entity.name.label.reference.local.65c816",
+          "match": "(?<!\\w)(@\\w+)(?!:)"
+        },
+        {
+          "comment": "Global Label Reference Matching",
+          "name": "entity.name.label.reference.global.65c816",
+          "match": "(?<!\\w)(\\w+)(?!:)"
+        },
+        {
+          "name": "variable.other.label.reference.65c816",
+          "match": "(?<!:)\\b([a-zA-Z_][a-zA-Z0-9_]*)\\b"
         }
       ]
     },
-    "opcodes_transfer": {
+    "opcodes_load": {
       "patterns": [
         {
-          "comment": "Data Transfer Instructions",
-          "name": "keyword.mnemonic.transfer.snes65c816",
+          "comment": "Data Load Instructions",
+          "name": "keyword.mnemonic.load.snes65c816",
           "match": "^[ \\t]*:?[ \\t]*\\b(?i:lda|ldx|ldy|sta|stx|sty|stz|mvn|mvp|pea|pei|per)\\b"
-        }
-      ]
-    },
-    "opcodes_branch": {
-      "patterns": [
-        {
-          "comment": "Branch Instructions",
-          "name": "keyword.mnemonic.branch.snes65c816",
-          "match": "^[ \\t]*:?[ \\t]*\\b(?i:bcc|bcs|beq|bmi|bne|bpl|bra|brl|bvc|bvs)\\b"
-        }
-      ]
-    },
-    "opcodes_stack": {
-      "patterns": [
-        {
-          "comment": "Stack Instructions",
-          "name": "keyword.mnemonic.stack.snes65c816",
-          "match": "^[ \\t]*:?[ \\t]*\\b(?i:pha|pla|php|plp|phb|plb|phd|pld|phk|phx|phy|plx|ply)\\b"
         }
       ]
     },
@@ -98,12 +108,48 @@
         }
       ]
     },
+    "opcodes_arithmetic": {
+      "patterns": [
+        {
+          "comment": "Arithmetic Instructions",
+          "name": "keyword.mnemonic.math.snes65c816",
+          "match": "^[ \\t]*:?[ \\t]*\\b(?i:adc|sbc|inc|dec)\\b"
+        }
+      ]
+    },
     "opcodes_bitwise": {
       "patterns": [
         {
           "comment": "Bitwise Instructions",
           "name": "keyword.mnemonic.bitwise.snes65c816",
-          "match": "^[ \\t]*:?[ \\t]*\\b(?i:and|ora|eor|asl|lsr|rol|ror|bit|trb|tsb)\\b"
+          "match": "^[ \\t]*:?[ \\t]*\\b(?i:and|ora|eor|bit|trb|tsb)\\b"
+        }
+      ]
+    },
+    "opcodes_rotate": {
+      "patterns": [
+        {
+          "comment": "Rotate Instructions",
+          "name": "keyword.mnemonic.rotate.snes65c816",
+          "match": "^[ \\t]*:?[ \\t]*\\b(?i:asl|lsr|rol|ror)\\b"
+        }
+      ]
+    },
+    "opcodes_compare": {
+      "patterns": [
+        {
+          "comment": "Compare Instructions",
+          "name": "keyword.mnemonic.compare.snes65c816",
+          "match": "^[ \\t]*:?[ \\t]*\\b(?i:cmp|cpy|cpx)\\b"
+        }
+      ]
+    },
+    "opcodes_branch": {
+      "patterns": [
+        {
+          "comment": "Branch Instructions",
+          "name": "keyword.mnemonic.branch.snes65c816",
+          "match": "^[ \\t]*:?[ \\t]*\\b(?i:bcc|bcs|beq|bmi|bne|bpl|bra|brl|bvc|bvs)\\b"
         }
       ]
     },
@@ -113,6 +159,15 @@
           "comment": "Program Flow Instructions",
           "name": "keyword.mnemonic.flow.snes65c816",
           "match": "^[ \\t]*:?[ \\t]*\\b(?i:jmp|jml|jsr|jsl|rts|rtl|rti)\\b"
+        }
+      ]
+    },
+    "opcodes_stack": {
+      "patterns": [
+        {
+          "comment": "Stack Instructions",
+          "name": "keyword.mnemonic.stack.snes65c816",
+          "match": "^[ \\t]*:?[ \\t]*\\b(?i:pha|pla|php|plp|phb|plb|phd|pld|phk|phx|phy|plx|ply)\\b"
         }
       ]
     },
@@ -152,31 +207,6 @@
           "captures": {
             "1": { "name": "entity.name.function.macro.65c816" }
           }
-        }
-      ]
-    },
-    "labels": {
-      "patterns": [
-        
-        {
-          "name": "entity.name.label.65c816",
-          "match": "^\\s*([a-zA-Z_][a-zA-Z0-9_]*):",
-          "captures": {
-            "1": { "name": "entity.name.label.65c816" }
-          }
-        },
-        
-        {
-          "name": "entity.name.label.local.65c816",
-          "match": "^\\s*(@[a-zA-Z_][a-zA-Z0-9_]*):",
-          "captures": {
-            "1": { "name": "entity.name.label.local.65c816" }
-          }
-        },
-        
-        {
-          "name": "variable.other.label.reference.65c816",
-          "match": "(?<!:)\\b([@a-zA-Z_][a-zA-Z0-9_]*)\\b"
         }
       ]
     }
