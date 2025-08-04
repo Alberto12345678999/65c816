@@ -20,9 +20,9 @@
   "contributes": {
     "themes": [
       {
-        "label": "SNES-ASM-Color",
+        "label": "SNES Assembly Suite (65C816/5A22)",
         "uiTheme": "hc-black",
-        "path": "./themes/SNES-ASM-Color-color-theme.json"
+        "path": "./themes/SNES Assembly Suite (65C8165A22)-color-theme.json"
       }
     ],
     "languages": [
