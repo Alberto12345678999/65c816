@@ -72,10 +72,6 @@
           "comment": "Global Label Definitions (non-dot-prefixed, ending with single colon)",
           "name": "entity.name.label.global.definition.snes65c816",
           "match": "^[ \\t]*[a-zA-Z_][\\w#@]*:(?=\\s|$)"
-        },
-        {
-          "name": "variable.other.label.reference.snes65c816",
-          "match": "(?<!:)\\b([a-zA-Z_][a-zA-Z0-9_]*)\\b"
         }
       ]
     },
@@ -196,7 +192,11 @@
           "captures": {
             "1": { "name": "entity.name.function.macro.snes65c816" }
           }
-        }
+        },
+        {
+        "name": "entity.name.function.macro.call.snes65c816",
+        "match": "^[ \\t]*([a-zA-Z_][\\w#@]*)\\b(?!:)"
+      }
       ]
     }
   },

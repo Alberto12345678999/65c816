@@ -483,6 +483,13 @@
 			}
 		},
 		{
+  			"name": "65C816 Macro Calls",
+  			"scope": "entity.name.function.macro.call.snes65c816",
+  			"settings": {
+  			  "foreground": "#B48EAD"
+  			}
+		},
+		{
 			"name": "65C816 Global Label Reference",
 			"scope": "entity.name.label.reference.global.snes65c816",
 			"settings": {
