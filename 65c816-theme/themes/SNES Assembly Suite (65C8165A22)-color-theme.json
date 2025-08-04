@@ -460,7 +460,7 @@
 		},
 		{
 			"name": "65C816 Global Labels",
-			"scope": "entity.name.label.global.definition.65c816",
+			"scope": "entity.name.label.global.definition.snes65c816",
 			"settings": {
 				"foreground": "#F7C873",
 				"fontStyle": "bold"
@@ -468,7 +468,7 @@
 		},
 		{
 			"name": "65C816 Local Labels",
-			"scope": "entity.name.label.local.definition.65c816",
+			"scope": "entity.name.label.local.definition.snes65c816",
 			"settings": {
 				"foreground": "#9CDCFE",
 				"fontStyle": "italic"
@@ -476,7 +476,7 @@
 		},
 		{
 			"name": "65C816 Local Label Reference",
-			"scope": "entity.name.label.reference.local.65c816",
+			"scope": "entity.name.label.reference.local.snes65c816",
 			"settings": {
 				"foreground": "#4EC9B0",
 				"fontStyle": "underline"
@@ -484,7 +484,7 @@
 		},
 		{
 			"name": "65C816 Global Label Reference",
-			"scope": "entity.name.label.reference.global.65c816",
+			"scope": "entity.name.label.reference.global.snes65c816",
 			"settings": {
 				"foreground": "#FFD700",
 				"fontStyle": "underline"
